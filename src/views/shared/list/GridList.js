@@ -20,7 +20,8 @@ const Container = styled.div`
 
 `;
 const Row = styled.div`
-  
+  display: flex;
+  flex-direction: column;
 `;
 const Col = styled.div`
   

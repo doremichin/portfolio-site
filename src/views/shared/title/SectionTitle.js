@@ -14,9 +14,9 @@ export default function SectionTitle({ title, subTitle }) {
 
 const Container = styled.div`
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   h2{
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 10px;
     color: #333;
     font-weight: 500;
