@@ -9,7 +9,7 @@ import WorksItem from './WorksItem';
 export default function Works() {
   return (
     <Container name="works">
-      <SectionTitle title={appData.works.title} subTitle={appData.works.subTitle} />
+      <SectionTitle title={appData.works.title} />
       <ContentContainer>
         <GridList data={appData.works.list}>
           {(item) => <WorksItem item={item} />}

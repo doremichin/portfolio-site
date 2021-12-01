@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-scroll'
 
 import { useState } from 'react';
 
@@ -38,8 +39,17 @@ export default function Header() {
   }
   return (
     <Container className={cn({ scrolled, isMobile, openMenu })}>
-      <Logo>
-        GwangMyeon
+      <Logo
+        activeClass="isActive"
+        to="visual"
+        spy
+        smooth
+        offset={-70}
+        duration={500}
+        ignoreCancelEvents
+        onClick={() => setOpenMenu(false)}
+      >
+        Myeoni🙂
       </Logo>
       <Nav onCloseMenu={handleMenu} />
       {
@@ -75,13 +85,32 @@ const Container = styled.div`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
+  cursor: pointer;
   color: #fff;
   text-transform: capitalize;
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 500;
   .scrolled & {
     color: #333;
   }
+  &:hover{
+    animation: animate 1s linear infinite
+  }
+  @keyframes animate {
+    0%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(-3px);
+    }
+    100%{
+      transform: translateY(0);
+
+    }
+
+  }
+
 `;
 
 const ButtonMenu = styled.div`
