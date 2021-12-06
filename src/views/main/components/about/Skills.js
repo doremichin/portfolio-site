@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { frontSkills, softSkills } from '../../../data';
+import { frontSkills, softSkills } from '../../../../data';
 
 export default function Skills() {
   return (
@@ -73,7 +73,7 @@ const Title = styled.h2`
   text-transform: capitalize;
   font-size: 21px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 const SubTitle = styled.div`
   font-size: 18px;
