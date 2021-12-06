@@ -1,21 +1,28 @@
 import styled from 'styled-components'
+import { useMediaMatch } from 'rooks';
+import cn from 'classnames';
 
 export default function WorksItem({ item }) {
+  const isTablet = useMediaMatch('(max-width: 1050px)');
+
   return (
-    <Container>
+    <Container className={cn({ isTablet })}>
       <Contents>
-        <Image>
-          <img src={item.imageUrl} alt="" />
+        <Image href={item.url}>
+          {
+            item.imageUrl
+            && <img src={item.imageUrl} alt="" />
+          }
         </Image>
         <Desc>
           <Title href={item.url}>
             {item.name}
             {' '}
-            <span>바로가기</span>
           </Title>
           {
             item.description.map((desc) => (
               <p>
+                -&nbsp;
                 {desc}
               </p>
             ))
@@ -32,9 +39,9 @@ export default function WorksItem({ item }) {
 }
 
 const Container = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   border-bottom: 1px solid #dedede;
-  padding: 0 10px;
+  padding: 0 10px 80px;
 `;
 const Title = styled.a`
   display: flex;
@@ -42,42 +49,37 @@ const Title = styled.a`
   font-size: 21px;
   font-weight: 500;
   margin-bottom: 20px;
-  span{
-    margin-left: 8px;
-    font-weight: 400;
-    font-size: 13px;
-    border: 1px solid #000;
-    border-radius: 2px;
-    padding: 2px 4px;
-    cursor: pointer;
-    transition: 0.3s;
-    &:hover{
-      background: #333;
-      color: #fff;
-    }
-  }
+  transition: 0.3s;
+  
 `;
 const Contents = styled.div`
   display: flex;
+  .isTablet & {
+    align-items: center;
+    flex-direction: column;
+  }
 `;
-const Image = styled.div`
+const Image = styled.a`
+  display: block;
   flex-shrink: 0;
   width: 550px;
   height: 320px;
   background-color: #999;
   margin-right: 20px;
-  margin-bottom: 40px;
   overflow: hidden;
   border-radius: 4px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
-
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  .isTablet &{
+    margin-bottom: 30px;
+  }
 `;
 const Desc = styled.div`
   line-height: 1.8;
   text-transform: capitalize;
+  white-space: nowrap;
 `;
