@@ -17,7 +17,9 @@ export default function About() {
       <ContentContainer>
         <SectionTitle title={appData.about.title} />
         <Wrapper>
-          <Image />
+          <Image>
+            <img src="https://drive.google.com/uc?id=1AA8WO9mWeZJlk9EZMlgeODQ_FuHI_C0p" alt="" />
+          </Image>
           <Contents>
             <MyInfo />
             <Skills />
@@ -43,11 +45,12 @@ const Image = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  overflow: hidden;
   background-color: #eee;
   flex-shrink: 0;
-  margin-right: 40px;
+  margin-right: 80px;
   .isTablet & {
-    margin: 0 0 30px 0;
+    margin: 0 0 90px 0;
   }
 `;
 const Contents = styled.div`
