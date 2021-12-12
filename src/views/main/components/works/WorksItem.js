@@ -2,36 +2,51 @@ import styled from 'styled-components'
 import { useMediaMatch } from 'rooks';
 import cn from 'classnames';
 
+import Images from './thumbnail/Images';
+
 export default function WorksItem({ item }) {
   const isTablet = useMediaMatch('(max-width: 1050px)');
 
   return (
     <Container className={cn({ isTablet })}>
       <Contents>
-        <Image href={item.url}>
-          {
-            item.imageUrl
-            && <img src={item.imageUrl} alt="" />
-          }
-        </Image>
+        <Images items={item} />
+
         <Desc>
           <Title href={item.url}>
             {item.name}
-            {' '}
+            &nbsp;
+            <span>{item.startDate}</span>
           </Title>
+          <Info>
+            {
+              item.description.map((desc) => (
+                <p>
+                  -&nbsp;
+                  {desc}
+                </p>
+              ))
+            }
+            {
+              item.tags.length > 0
+              && (
+                <Tags>
+                  -&nbsp;
+                  {item.tags.join(', ')}
+                </Tags>
+              )
+            }
+          </Info>
           {
-            item.description.map((desc) => (
-              <p>
-                -&nbsp;
-                {desc}
-              </p>
-            ))
+            item.github
+            && (
+              <GitLink href={item.github}>
+                github -
+                {' '}
+                <span>{item.github}</span>
+              </GitLink>
+            )
           }
-          <p>
-            -&nbsp;
-            {item.tags.join(', ')}
-          </p>
-
         </Desc>
       </Contents>
     </Container>
@@ -50,36 +65,36 @@ const Title = styled.a`
   font-weight: 500;
   margin-bottom: 20px;
   transition: 0.3s;
-  
+  span{
+    transform: translateY(3px);
+    font-size: 13px;
+    color: #777;
+  }
+`;
+const GitLink = styled.a`
+  font-size: 15px;
+  span{
+    text-decoration: underline;
+  }
 `;
 const Contents = styled.div`
   display: flex;
+  justify-content: space-between;
   .isTablet & {
     align-items: center;
     flex-direction: column;
   }
 `;
-const Image = styled.a`
-  display: block;
-  flex-shrink: 0;
-  width: 550px;
-  height: 320px;
-  background-color: #999;
-  margin-right: 20px;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .isTablet &{
-    margin-bottom: 30px;
-  }
-`;
+
 const Desc = styled.div`
   line-height: 1.8;
   text-transform: capitalize;
   white-space: nowrap;
+`;
+const Info = styled.div`
+  line-height: 2.5;
+  margin-bottom: 15px;
+`;
+const Tags = styled.p`
+  
 `;

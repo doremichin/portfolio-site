@@ -48,8 +48,7 @@ const Contents = styled.div`
 `;
 const Section = styled.div`
   &:nth-child(2){
-    padding-left: 20px;
-    border-left: 1px solid #dedede;
+    padding-left: 30px;
   }
 `;
 const Thumb = styled.div`
