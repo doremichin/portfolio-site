@@ -6,14 +6,15 @@ import Images from './thumbnail/Images';
 
 export default function WorksItem({ item }) {
   const isTablet = useMediaMatch('(max-width: 1050px)');
+  const { hasLink } = item;
 
   return (
     <Container className={cn({ isTablet })}>
       <Contents>
-        <Images items={item} />
+        <Images item={item} />
 
         <Desc>
-          <Title href={item.url}>
+          <Title href={item.url} className={cn({ hasLink })}>
             {item.name}
             &nbsp;
             <span>{item.startDate}</span>
@@ -22,7 +23,7 @@ export default function WorksItem({ item }) {
             {
               item.description.map((desc) => (
                 <p>
-                  -&nbsp;
+                  •&nbsp;
                   {desc}
                 </p>
               ))
@@ -31,7 +32,7 @@ export default function WorksItem({ item }) {
               item.tags.length > 0
               && (
                 <Tags>
-                  -&nbsp;
+                  •&nbsp;
                   {item.tags.join(', ')}
                 </Tags>
               )
@@ -57,6 +58,9 @@ const Container = styled.div`
   margin-bottom: 80px;
   border-bottom: 1px solid #dedede;
   padding: 0 10px 80px;
+  &.hasLink {
+    cursor: default;
+  }
 `;
 const Title = styled.a`
   display: flex;
@@ -69,6 +73,9 @@ const Title = styled.a`
     transform: translateY(3px);
     font-size: 13px;
     color: #777;
+  }
+  &:not(.hasLink) {
+    cursor: default;
   }
 `;
 const GitLink = styled.a`
