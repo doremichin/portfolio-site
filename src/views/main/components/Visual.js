@@ -8,13 +8,17 @@ import { useScrollPoint } from '../../../hooks/useScrollPoint';
 
 export default function Visual() {
   const scrolled = useScrollPoint(700);
+  const isDesktop = useMediaMatch('(min-width: 1700px)');
   const isTablet = useMediaMatch('(max-width: 1050px)');
   const isMobile = useMediaMatch('(max-width: 768px)');
 
   return (
     <Container name="visual">
       <Screen />
-      <Title className={cn({ scrolled, isTablet, isMobile })}>
+      <Title className={cn({
+        scrolled, isTablet, isMobile, isDesktop,
+      })}
+      >
         안녕하세요
         <br />
         <span>웹 프론트엔드 개발자 김광면</span>
@@ -58,6 +62,10 @@ const Title = styled.div`
   }
   &.scrolled{
     opacity: 0;
+  }
+  &.isDesktop {
+    font-size: 40px;
+    padding-right: 10%;
   }
   &.isTablet {
     font-size: 28px;
