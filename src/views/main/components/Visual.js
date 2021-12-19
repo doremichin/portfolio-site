@@ -21,7 +21,7 @@ export default function Visual() {
         입니다.
         <br />
         <Desc>
-          UI/UX에 대한 고민을 통해 사용자가 보다 더 나은 서비스를 이용할 수 있도록 개발 하는 것이 목표입니다.
+          UI/UX에 대한 고민을 통해 사용자에게 보다 더 나은 서비스를 제공할 수 있도록 개발 하는 것이 목표입니다.
         </Desc>
       </Title>
     </Container>
@@ -31,7 +31,7 @@ export default function Visual() {
 const Container = styled.div`
   position: relative;
   background:  url('https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1932&q=80') 50% / cover fixed no-repeat;
-  height: 95vh;
+  height: 100vh;
 `;
 
 const Screen = styled.div`
@@ -63,20 +63,16 @@ const Title = styled.div`
     font-size: 28px;
     padding-right: 5%;
     top: 40%;
-
   }
   &.isMobile {
     font-size: 24px;
-
   }
-  
 `;
 const Desc = styled.p`
   font-size: 19px;
   color: #dedede;
   line-height: 2.4;
   max-width: 450px;
-
   .isTablet &{
     font-size: 18px;
   }

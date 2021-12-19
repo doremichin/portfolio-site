@@ -1,17 +1,12 @@
-// export default function Images({ item }) {
-//   if (item.imageUrl.length === 1) return <SingleImage item={item} />
-//
-//   if (item.imageUrl.length > 1) return <CoupleImages item={item} />
-//
-//   return null;
-// }
-
 import styled from 'styled-components'
+import cn from 'classnames';
 
-export default function Images({ items }) {
+export default function Images({ item }) {
+  const { hasLink } = item;
+
   return (
-    <Container href={items.url}>
-      {items.imageUrl.map((url) => (
+    <Container href={item.url} className={cn({ hasLink })}>
+      {item.imageUrl.map((url) => (
         <Image>
           <img src={url} alt="" />
         </Image>
@@ -22,6 +17,9 @@ export default function Images({ items }) {
 
 const Container = styled.a`
   display: block;
+  &:not(.hasLink) {
+    cursor: default;
+  }
 `;
 const Image = styled.div`
   width: 550px;
