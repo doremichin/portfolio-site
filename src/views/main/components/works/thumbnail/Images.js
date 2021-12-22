@@ -22,10 +22,10 @@ const Container = styled.a`
   }
 `;
 const Image = styled.div`
-  width: 550px;
-  height: 320px;
+  width: 600px;
+  height: 340px;
   background-color: #999;
-  margin: 0 30px 30px 0;
+  margin: 0 50px 30px 0;
   overflow: hidden;
   border-radius: 4px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);

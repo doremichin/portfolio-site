@@ -57,9 +57,17 @@ export default function WorksItem({ item }) {
 const Container = styled.div`
   margin-bottom: 80px;
   border-bottom: 1px solid #dedede;
-  padding: 0 10px 80px;
+  padding: 0 15px 80px;
   &.hasLink {
     cursor: default;
+  }
+`;
+const Contents = styled.div`
+  display: flex;
+  justify-content: space-between;
+  .isTablet & {
+    align-items: center;
+    flex-direction: column;
   }
 `;
 const Title = styled.a`
@@ -84,23 +92,16 @@ const GitLink = styled.a`
     text-decoration: underline;
   }
 `;
-const Contents = styled.div`
-  display: flex;
-  justify-content: space-between;
-  .isTablet & {
-    align-items: center;
-    flex-direction: column;
-  }
-`;
-
 const Desc = styled.div`
   line-height: 1.8;
   text-transform: capitalize;
-  white-space: nowrap;
 `;
 const Info = styled.div`
-  line-height: 2.5;
+  line-height: 1.5;
   margin-bottom: 15px;
+  p{
+    margin-bottom: 13px;
+  }
 `;
 const Tags = styled.p`
   
