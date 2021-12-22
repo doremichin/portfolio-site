@@ -35,19 +35,18 @@ export default function MyInfo() {
 }
 
 const Container = styled.div`
-
 `;
 const Title = styled.h2`
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 `;
 const Name = styled.div`
-  font-size: 17px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 12px;
 `;
 const Character = styled.div`
-  line-height: 2.5;
+  line-height: 1.7;
 `;
 const Contact = styled.div`
   margin-top: 30px;
@@ -59,6 +58,6 @@ const Emoticon = styled.span`
   margin-right: 10px;
 `;
 const Desc = styled.div`
-  line-height: 2.5;
+  line-height: 2.0;
 
 `;

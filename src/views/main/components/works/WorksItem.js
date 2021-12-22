@@ -1,15 +1,14 @@
-import styled from 'styled-components'
-import { useMediaMatch } from 'rooks';
+import styled, { css } from 'styled-components'
 import cn from 'classnames';
 
 import Images from './thumbnail/Images';
+import { screenLg, screenMd } from '../../../../style/Responsive';
 
 export default function WorksItem({ item }) {
-  const isTablet = useMediaMatch('(max-width: 1050px)');
   const { hasLink } = item;
 
   return (
-    <Container className={cn({ isTablet })}>
+    <Container>
       <Contents>
         <Images item={item} />
 
@@ -55,25 +54,27 @@ export default function WorksItem({ item }) {
 }
 
 const Container = styled.div`
-  margin-bottom: 80px;
+  margin: 0 auto 80px;
+  padding-bottom: 50px;
+  max-width: 700px;
   border-bottom: 1px solid #dedede;
-  padding: 0 15px 80px;
   &.hasLink {
     cursor: default;
   }
 `;
 const Contents = styled.div`
   display: flex;
-  justify-content: space-between;
-  .isTablet & {
-    align-items: center;
-    flex-direction: column;
-  }
+  flex-direction: column;
+  align-items: flex-start;
+  
+`;
+const Desc = styled.div`
+  text-transform: capitalize;
 `;
 const Title = styled.a`
   display: flex;
   align-items: center;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
   transition: 0.3s;
@@ -85,6 +86,19 @@ const Title = styled.a`
   &:not(.hasLink) {
     cursor: default;
   }
+  ${screenMd(css`
+    font-size: 22px;
+  `)}
+  ${screenLg(css`
+    font-size: 22px;
+  `)}
+`;
+const Info = styled.div`
+  line-height: 1.3;
+  margin-bottom: 15px;
+  p{
+    margin-bottom: 13px;
+  }
 `;
 const GitLink = styled.a`
   font-size: 15px;
@@ -92,17 +106,7 @@ const GitLink = styled.a`
     text-decoration: underline;
   }
 `;
-const Desc = styled.div`
-  line-height: 1.8;
-  text-transform: capitalize;
-`;
-const Info = styled.div`
-  line-height: 1.5;
-  margin-bottom: 15px;
-  p{
-    margin-bottom: 13px;
-  }
-`;
+
 const Tags = styled.p`
   
 `;

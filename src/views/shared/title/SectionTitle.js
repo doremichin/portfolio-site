@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+import { screenLg } from '../../../style/Responsive';
 
 export default function SectionTitle({ title, subTitle }) {
   return (
@@ -14,13 +16,16 @@ export default function SectionTitle({ title, subTitle }) {
 
 const Container = styled.div`
   text-align: center;
-  margin-bottom: 110px;
+  margin-bottom: 50px;
   h2{
-    font-size: 32px;
+    font-size: 27px;
     margin-bottom: 10px;
     color: #333;
     font-weight: 500;
     text-transform: capitalize;
+    ${screenLg(css`
+      font-size: 30px;
+    `)}
   }
   p{
     font-size: 17px;

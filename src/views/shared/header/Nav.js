@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'react-scroll'
+
+import { screenSm } from '../../../style/Responsive';
 
 export default function Nav({ onCloseMenu }) {
   const sections = [
@@ -43,7 +45,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   transition: transform 0.4s;
-  .isMobile & {
+  ${screenSm(css`
     flex-direction: column;
     justify-content: center;
     position: fixed;
@@ -54,10 +56,10 @@ const Container = styled.div`
     width: 300px;
     background: #fff;
     transform: translateX(-100%);
-  }
-  .isMobile.openMenu & {
-    transform: none;
-  }
+    .openMenu & {
+      transform: none;
+    }
+  `)}
 `;
 const NavLink = styled(Link)`
   text-transform: capitalize;
@@ -71,11 +73,13 @@ const NavLink = styled(Link)`
   &:hover{
     color: #18f;
   }
-  .scrolled &,.isMobile &  {
+  .scrolled &{
     color: #333;
   }
-  .isMobile & {
+  ${screenSm(css`
+    color: #333;
     width: 100%;
     justify-content: center;
-  }
+  `)}
+  
 `;

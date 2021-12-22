@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'react-scroll'
 
 import { useState } from 'react';
@@ -7,30 +7,11 @@ import cn from 'classnames'
 
 import { AiOutlineMenu } from 'react-icons/ai';
 
-import { useMediaMatch } from 'rooks';
-
 import Nav from './Nav';
 import { useScrollPoint } from '../../../hooks/useScrollPoint';
+import { screenSm } from '../../../style/Responsive';
 
 export default function Header() {
-  const pages = [
-    {
-      name: 'main',
-      to: '/',
-      isActive: true,
-    },
-    {
-      name: 'blog',
-      to: '/blog',
-      isActive: false,
-    },
-    {
-      name: 'main',
-      to: '/',
-      isActive: true,
-    },
-  ]
-  const isMobile = useMediaMatch('(max-width: 768px)');
   const [openMenu, setOpenMenu] = useState(false);
   const scrolled = useScrollPoint(800);
 
@@ -38,7 +19,7 @@ export default function Header() {
     setOpenMenu((v) => !v)
   }
   return (
-    <Container className={cn({ scrolled, isMobile, openMenu })}>
+    <Container className={cn({ scrolled, openMenu })}>
       <Logo
         activeClass="isActive"
         to="visual"
@@ -52,17 +33,12 @@ export default function Header() {
         Myeoni🙂
       </Logo>
       <Nav onCloseMenu={handleMenu} />
-      {
-        isMobile
-        && (
-          <>
-            <ButtonMenu onClick={handleMenu}>
-              <AiOutlineMenu />
-            </ButtonMenu>
-            <Screen onClick={handleMenu} />
-          </>
-        )
-      }
+      <IsMobile>
+        <ButtonMenu onClick={handleMenu}>
+          <AiOutlineMenu />
+        </ButtonMenu>
+        <Screen onClick={handleMenu} />
+      </IsMobile>
     </Container>
   )
 }
@@ -83,6 +59,9 @@ const Container = styled.div`
     background: #fff;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
   }
+  ${screenSm(css`
+    padding: 0 30px;
+  `)}
 `;
 
 const Logo = styled(Link)`
@@ -112,7 +91,10 @@ const Logo = styled(Link)`
   }
 
 `;
-
+const IsMobile = styled.div`
+  display: none;
+  ${screenSm(css`display: block;`)}
+`;
 const ButtonMenu = styled.div`
   font-size: 24px;
   color: #fff;
@@ -121,6 +103,7 @@ const ButtonMenu = styled.div`
   .scrolled & {
     color: #333;
   }
+
 `;
 const Screen = styled.div`
   position: fixed;

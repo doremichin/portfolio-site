@@ -1,9 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { AiOutlineArrowUp } from 'react-icons/ai';
 import { animateScroll as scroll } from 'react-scroll'
 import cn from 'classnames';
 
 import { useScrollPoint } from '../../../hooks/useScrollPoint';
+import { screenSm } from '../../../style/Responsive';
 
 export default function BackTop() {
   const isActive = useScrollPoint(1000);
@@ -40,4 +41,10 @@ const Container = styled.div`
   &.isActive {
     transform: none;
   }
+  ${screenSm(css`
+    right: 30px;
+    bottom: 30px;
+    width: 55px;
+    height: 55px;
+  `)}
 `;

@@ -6,8 +6,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const SectionContainer = styled.div`
-  padding: 90px 0 130px;
-
+  padding: 50px 15px 0;
   &:nth-child(odd) {
     background: #f5f5f5;
   }
