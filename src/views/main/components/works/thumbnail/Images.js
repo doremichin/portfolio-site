@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import cn from 'classnames';
+import Image from 'next/image'
 
 export default function Images({ item }) {
   const { hasLink } = item;
@@ -7,9 +8,9 @@ export default function Images({ item }) {
   return (
     <Container href={item.url} className={cn({ hasLink })} target={hasLink ? '_blank' : ''}>
       {item.imageUrl.map((url) => (
-        <Image>
-          <img src={url} alt="" />
-        </Image>
+        <ImageWrapper>
+          <Image src={url} width={840} height={480} />
+        </ImageWrapper>
       ))}
     </Container>
   )
@@ -21,7 +22,7 @@ const Container = styled.a`
     cursor: default;
   }
 `;
-const Image = styled.div`
+const ImageWrapper = styled.div`
   width: 100%;
   background-color: #999;
   margin: 0 50px 30px 0;

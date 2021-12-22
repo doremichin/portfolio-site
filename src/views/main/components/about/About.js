@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import Image from 'next/image'
+
 import SectionTitle from '../../../shared/title/SectionTitle';
 import { appData } from '../../../../data';
 import { ContentContainer, SectionContainer } from '../../../shared/layout/Layout.Styled';
@@ -13,9 +15,9 @@ export default function About() {
       <ContentContainer>
         <SectionTitle title={appData.about.title} />
         <Wrapper>
-          <Image>
-            <img src="https://drive.google.com/uc?id=1AA8WO9mWeZJlk9EZMlgeODQ_FuHI_C0p" alt="" />
-          </Image>
+          <ImageWrapper>
+            <Image src="https://drive.google.com/uc?id=1AA8WO9mWeZJlk9EZMlgeODQ_FuHI_C0p" width={500} height={500} />
+          </ImageWrapper>
           <Contents>
             <MyInfo />
             <Skills />
@@ -34,7 +36,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const Image = styled.div`
+const ImageWrapper = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
