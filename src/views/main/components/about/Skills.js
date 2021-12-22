@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { frontSkills, softSkills } from '../../../../data';
+import { screenLg } from '../../../../style/Responsive';
 
 export default function Skills() {
   return (
@@ -39,17 +40,23 @@ export default function Skills() {
 }
 
 const Container = styled.div`
-  margin-top: 30px;
-  border-top: 1px solid #dedede;
   padding-top: 30px;
+  margin: 30px 0;
+  border-top: 1px solid #dedede;
 `;
 const Contents = styled.div`
   display: flex;
+  flex-direction: column;
+  ${screenLg(css`
+    flex-direction: row;
+    `)}
 `;
 const Section = styled.div`
-  &:nth-child(2){
-    padding-left: 30px;
-  }
+  ${screenLg(css`
+    &:nth-child(2){
+      padding-left: 20px;
+    }
+    `)}
 `;
 const Thumb = styled.div`
   display: flex;

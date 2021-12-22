@@ -22,8 +22,7 @@ const Container = styled.a`
   }
 `;
 const Image = styled.div`
-  width: 600px;
-  height: 340px;
+  width: 100%;
   background-color: #999;
   margin: 0 50px 30px 0;
   overflow: hidden;
