@@ -13,7 +13,7 @@ import { screenSm } from '../../../style/Responsive';
 
 export default function Header() {
   const [openMenu, setOpenMenu] = useState(false);
-  const scrolled = useScrollPoint(800);
+  const scrolled = useScrollPoint(600);
 
   const handleMenu = () => {
     setOpenMenu((v) => !v)
