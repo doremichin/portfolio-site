@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import Image from 'next/image'
-
 import SectionTitle from '../../../shared/title/SectionTitle';
 import { appData } from '../../../../data';
 import { ContentContainer, SectionContainer } from '../../../shared/layout/Layout.Styled';
@@ -16,7 +14,7 @@ export default function About() {
         <SectionTitle title={appData.about.title} />
         <Wrapper>
           <ImageWrapper>
-            <Image src="https://drive.google.com/uc?id=1AA8WO9mWeZJlk9EZMlgeODQ_FuHI_C0p" width={500} height={500} />
+            <img src="https://drive.google.com/uc?id=1AA8WO9mWeZJlk9EZMlgeODQ_FuHI_C0p" alt="" />
           </ImageWrapper>
           <Contents>
             <MyInfo />

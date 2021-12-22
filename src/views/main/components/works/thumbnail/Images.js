@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import cn from 'classnames';
-import Image from 'next/image'
 
 export default function Images({ item }) {
   const { hasLink } = item;
@@ -9,7 +8,7 @@ export default function Images({ item }) {
     <Container href={item.url} className={cn({ hasLink })} target={hasLink ? '_blank' : ''}>
       {item.imageUrl.map((url) => (
         <ImageWrapper>
-          <Image src={url} width={840} height={480} />
+          <img src={url} alt="" />
         </ImageWrapper>
       ))}
     </Container>
