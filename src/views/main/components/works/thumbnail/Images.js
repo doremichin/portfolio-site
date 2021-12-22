@@ -5,7 +5,7 @@ export default function Images({ item }) {
   const { hasLink } = item;
 
   return (
-    <Container href={item.url} className={cn({ hasLink })}>
+    <Container href={item.url} className={cn({ hasLink })} target={hasLink ? '_blank' : ''}>
       {item.imageUrl.map((url) => (
         <Image>
           <img src={url} alt="" />

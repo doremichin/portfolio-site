@@ -14,7 +14,7 @@ export default function WorksItem({ item }) {
         <Images item={item} />
 
         <Desc>
-          <Title href={item.url} className={cn({ hasLink })}>
+          <Title href={item.url} className={cn({ hasLink })} target={hasLink ? '_blank' : ''}>
             {item.name}
             &nbsp;
             <span>{item.startDate}</span>
@@ -41,7 +41,7 @@ export default function WorksItem({ item }) {
           {
             item.github
             && (
-              <GitLink href={item.github}>
+              <GitLink href={item.github} target={hasLink ? '_blank' : ''}>
                 github -
                 {' '}
                 <span>{item.github}</span>

@@ -11,9 +11,9 @@ export default function MyInfo() {
         김광면 / 28
       </Name>
       <Character>
-        • 새로운 것을 배우고 도전하는 것을 좋아합니다.
+        • 새로운 기술에 도전하고 배우는 것을 좋아합니다.
         <br />
-        • 서비스를 이용하는 사람의 입장에서 고민하며 개발하려고 합니다.
+        • 깔끔하고 사용성 높은 UI를 만들어서 사용자가 서비스를 재밌고 편리하게 이용할 수 있도록 개발 하고 싶습니다.
         <br />
         • 신입 프론트엔드 개발자로 React와 Github,Jira 를 이용하여 프로젝트의 설계부터 배포까지 경험 했습니다.
       </Character>
@@ -27,7 +27,7 @@ export default function MyInfo() {
           010-7300-5689
           <br />
           <Emoticon>💻</Emoticon>
-          <a href="https://github.com/doremichin">https://github.com/doremichin</a>
+          <a href="https://github.com/doremichin" target="_blank" rel="noreferrer">https://github.com/doremichin</a>
         </Desc>
       </Contact>
     </Container>
