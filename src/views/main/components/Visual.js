@@ -2,18 +2,40 @@ import styled, { css } from 'styled-components'
 
 import cn from 'classnames';
 
+import { useEffect, useState } from 'react';
+
 import { useScrollPoint } from '../../../hooks/useScrollPoint';
-import { screenLg, screenMd } from '../../../style/Responsive';
+import { screenLg, screenMd, screenSm } from '../../../style/Responsive';
 
 export default function Visual() {
   const scrolled = useScrollPoint(700);
+  const [move, setMove] = useState(0)
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const sct = window.scrollY || window.pageYOffset
+      const distance = 360;
+      const finish = 600;
+      setMove(distance / finish * sct)
+    })
+  }, []);
 
   return (
-    <Container name="visual">
+    <Container
+      name="visual"
+      style={{
+        backgroundPosition: `${50 - (move / 30)}% ${50 - (move / 65)}%`,
+      }}
+    >
       <Screen />
-      <Text className={cn({
-        scrolled,
-      })}
+      <Text
+        className={cn({
+          scrolled,
+        })}
+        style={{
+          transform: `translateY(${move}px)`,
+          opacity: 1.5 - (move / 350),
+        }}
       >
         <Title>
           안녕하세요
@@ -33,6 +55,12 @@ const Container = styled.div`
   position: relative;
   background: url('https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1932&q=80') 50% / cover fixed no-repeat;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${screenSm(css`
+    background-attachment: initial;
+  `)}
 `;
 
 const Screen = styled.div`
@@ -44,15 +72,11 @@ const Screen = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
 `;
 const Text = styled.div`
-  padding-left: 10%;
-  padding-right: 3%;
+  padding: 0 15px;
   display: inline-block;
-  position: sticky;
-  top: 42%;
-  left: 100%;
+  text-align: center;
   color: #fff;
   font-weight: 300;
-  transition: 0.4s;
   &.scrolled{
     opacity: 0;
   }

@@ -22,7 +22,7 @@ export default function Nav({ onCloseMenu }) {
   return (
     <Container className="Nav">
       {
-        sections.map(({ name, to }) => (
+        sections.map(({ name, to }, index) => (
           <NavLink
             activeClass="isActive"
             to={to}
@@ -32,6 +32,7 @@ export default function Nav({ onCloseMenu }) {
             duration={500}
             ignoreCancelEvents
             onClick={onCloseMenu}
+            key={index}
           >
             {name}
           </NavLink>

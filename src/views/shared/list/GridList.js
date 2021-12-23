@@ -5,8 +5,8 @@ export default function GridList({ children, data }) {
     <Container>
       <Row>
         {
-          data.map((item) => (
-            <Col>
+          data.map((item, index) => (
+            <Col key={index}>
               {children(item)}
             </Col>
           ))
