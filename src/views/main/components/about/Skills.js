@@ -15,8 +15,8 @@ export default function Skills() {
             Front End
           </SubTitle>
           <Thumb>
-            {frontSkills.map((item) => (
-              <Image>
+            {frontSkills.map((item, index) => (
+              <Image key={index}>
                 <img src={item.thumbnails} alt={item.title} />
               </Image>
             ))}
@@ -27,8 +27,8 @@ export default function Skills() {
             Soft Skill
           </SubTitle>
           <Thumb>
-            {softSkills.map((item) => (
-              <Image>
+            {softSkills.map((item, index) => (
+              <Image key={index}>
                 <img src={item.thumbnails} alt={item.title} />
               </Image>
             ))}

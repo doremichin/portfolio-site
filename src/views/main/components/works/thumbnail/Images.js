@@ -6,11 +6,9 @@ export default function Images({ item }) {
 
   return (
     <Container href={item.url} className={cn({ hasLink })} target={hasLink ? '_blank' : ''}>
-      {item.imageUrl.map((url) => (
-        <ImageWrapper>
-          <img src={url} alt="" />
-        </ImageWrapper>
-      ))}
+      <ImageWrapper>
+        <img src={item.imageUrl} alt="" />
+      </ImageWrapper>
     </Container>
   )
 }

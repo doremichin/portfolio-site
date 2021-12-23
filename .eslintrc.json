@@ -74,6 +74,7 @@
     "no-nested-ternary" : "off",
     "max-len" : "off",
     "react/no-unescaped-entities": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/no-array-index-key" : "off"
   }
 }
