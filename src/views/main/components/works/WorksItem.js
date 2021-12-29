@@ -69,7 +69,6 @@ const Contents = styled.div`
   
 `;
 const Desc = styled.div`
-  text-transform: capitalize;
 `;
 const Title = styled.a`
   display: flex;
